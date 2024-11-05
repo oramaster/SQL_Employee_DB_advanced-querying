@@ -56,12 +56,12 @@ ORDER BY Number DESC;
 SELECT EmployeeDemographics.Gender, MAX(EmployeeSalary.Salary) as MaximumSalary FROM EmployeeDemographics LEFT OUTER JOIN EmployeeSalary
 ON EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
 Group by EmployeeDemographics.Gender
-Order by MaximumSalary DESC;;
+Order by MaximumSalary DESC; -- Removed double semi-colon at line 59
 
-SELECT EmployeeDemographics.EmployeeID, EmployeeDemographics.Gender, AVG(EmployeeSalary.Salary) as AverageSalary FROM EmployeeDemographics LEFT OUTER JOIN EmployeeSalary
+SELECT EmployeeDemographics.Gender, AVG(EmployeeSalary.Salary) as AverageSalary FROM EmployeeDemographics LEFT OUTER JOIN EmployeeSalary
 ON EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
 Group by EmployeeDemographics.Gender
-Order by AverageSalary DESC;
+Order by AverageSalary DESC; -- line 61: removed EmployeeDemographics.employeeID from the select statement. Is is not an aggregate column
 
 
 SELECT * FROM EmployeeDemographics as emp LEFT OUTER JOIN EmployeeSalary as sal
@@ -79,11 +79,11 @@ GROUP BY sal.JobTitle;
 Insert into EmployeeDemographics VALUES
 (1011, 'Ryan', 'Howard', 26, 'Male'),
 (NULL, 'Holly','Flax', NULL, 'Male'),
-(1013, 'Darryl', 'Philbin', NULL, 'Male')
+(1013, 'Darryl', 'Philbin', NULL, 'Male');
 
 Insert into EmployeeSalary VALUES
 (1010, NULL, 47000),
-(NULL, 'Salesman', 43000)
+(NULL, 'Salesman', 43000);
 
 SELECT * FROM EmployeeDemographics;
 SELECT * FROM EmployeeSalary;
